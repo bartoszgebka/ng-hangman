@@ -1,3 +1,6 @@
+<img width="750" alt="hangman" src="https://user-images.githubusercontent.com/20091462/96493133-e391ee80-1244-11eb-953b-27a8c0fc778f.png">
+
+
 # Hangman
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
