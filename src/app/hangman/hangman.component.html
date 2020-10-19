@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-9">
+      <app-hangman-canvas></app-hangman-canvas>
+    </div>
+    <div class="col-12 col-md-3">
+      <button type="button" class="btn btn-success" [appLives]>
+        Lives
+        <span class="badge badge-light">{{
+          gameService.maxFails - gameService.fails.getValue()
+        }}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <ng-container [ngSwitch]="gameService.stateGame.getValue()">
+        <span class="text-success" *ngSwitchCase="StateGame.WIN"
+          >Congratulations!</span
+        >
+        <span class="text-danger" *ngSwitchCase="StateGame.GAME_OVER"
+          >Game over</span
+        >
+        <span *ngSwitchDefault>Error</span>
+      </ng-container>
+    </h4>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="gameService.initializeNewGame(); modal.close()"
+    >
+      New game
+    </button>
+  </div>
+</ng-template>
