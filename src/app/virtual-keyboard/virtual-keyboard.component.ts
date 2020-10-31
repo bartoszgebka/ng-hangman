@@ -41,7 +41,9 @@ export class VirtualKeyboardComponent implements OnInit {
 
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent): void {
-    this.gameService.addCharacter(event.key);
+    if (this.characters.includes(event.key.toUpperCase())) {
+      this.gameService.addCharacter(event.key);
+    }
   }
 
   keyClick(key: string): void {
