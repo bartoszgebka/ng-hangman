@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { GameService } from 'src/app/game.service';
-import { Hangman, IHangmanStep } from '../../models/hangman/hangman';
+import { HangmanFactoryImpl } from '../../models/hangman/hangman.factory';
 
 @Component({
   selector: 'app-hangman-canvas',
@@ -25,26 +25,22 @@ export class HangmanCanvasComponent implements OnInit, AfterViewInit {
     const context: CanvasRenderingContext2D = this.hangmanCanvas.nativeElement.getContext(
       '2d'
     );
+    const hangmanFactory: HangmanFactoryImpl = new HangmanFactoryImpl();
     this.gameService.fails.asObservable().subscribe((fails: number) => {
       if (fails === 0) {
-        context.clearRect(
-          0,
-          0,
-          this.hangmanCanvas.nativeElement.width,
-          this.hangmanCanvas.nativeElement.height
-        );
+        this.clearRect(context);
       } else {
-        this.getCurrentStep(fails).draw(
-          context,
-          this.hangmanCanvas.nativeElement
-        );
+        hangmanFactory.makeHangmanStep(fails).draw(context);
       }
     });
   }
 
-  getCurrentStep(fails: number): IHangmanStep {
-    return Hangman.getSteps().find(
-      (step: IHangmanStep) => step.stepNumber() === fails
+  clearRect(context: CanvasRenderingContext2D): void {
+    context.clearRect(
+      0,
+      0,
+      this.hangmanCanvas.nativeElement.width,
+      this.hangmanCanvas.nativeElement.height
     );
   }
 }

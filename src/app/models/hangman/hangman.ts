@@ -1,31 +1,8 @@
-export interface IHangmanStep {
-  stepNumber(): number;
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void;
+export abstract class Hangman {
+  abstract draw(context: CanvasRenderingContext2D): void;
 }
-
-export class Hangman {
-  static getSteps(): IHangmanStep[] {
-    return [
-      new BasisGallows(),
-      new Gallows(),
-      new Head(),
-      new Body(),
-      new RightArm(),
-      new LeftArm(),
-      new RightLeg(),
-      new LeftLeg(),
-      new RightFoot(),
-      new LeftFoot(),
-    ];
-  }
-}
-
-class BasisGallows implements IHangmanStep {
-  stepNumber(): number {
-    return 1;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class BasisGallows extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.strokeStyle = '#444';
     context.lineWidth = 10;
     context.beginPath();
@@ -35,12 +12,8 @@ class BasisGallows implements IHangmanStep {
   }
 }
 
-class Gallows implements IHangmanStep {
-  stepNumber(): number {
-    return 2;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class Gallows extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(40, 340);
     context.lineTo(40, 20);
@@ -50,12 +23,8 @@ class Gallows implements IHangmanStep {
   }
 }
 
-class Head implements IHangmanStep {
-  stepNumber(): number {
-    return 3;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class Head extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.lineWidth = 5;
     context.beginPath();
     context.arc(150, 65, 25, 0, Math.PI * 2, true);
@@ -64,12 +33,8 @@ class Head implements IHangmanStep {
   }
 }
 
-class Body implements IHangmanStep {
-  stepNumber(): number {
-    return 4;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class Body extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 90);
     context.lineTo(150, 160);
@@ -77,12 +42,8 @@ class Body implements IHangmanStep {
   }
 }
 
-class RightArm implements IHangmanStep {
-  stepNumber(): number {
-    return 5;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class RightArm extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 100);
     context.lineTo(110, 120);
@@ -90,12 +51,8 @@ class RightArm implements IHangmanStep {
   }
 }
 
-class LeftArm implements IHangmanStep {
-  stepNumber(): number {
-    return 6;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class LeftArm extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 100);
     context.lineTo(190, 120);
@@ -103,12 +60,8 @@ class LeftArm implements IHangmanStep {
   }
 }
 
-class RightLeg implements IHangmanStep {
-  stepNumber(): number {
-    return 7;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class RightLeg extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 160);
     context.lineTo(130, 210);
@@ -116,12 +69,8 @@ class RightLeg implements IHangmanStep {
   }
 }
 
-class LeftLeg implements IHangmanStep {
-  stepNumber(): number {
-    return 8;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class LeftLeg extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 160);
     context.lineTo(175, 210);
@@ -129,12 +78,8 @@ class LeftLeg implements IHangmanStep {
   }
 }
 
-class RightFoot implements IHangmanStep {
-  stepNumber(): number {
-    return 9;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class RightFoot extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(132, 210);
     context.lineTo(120, 205);
@@ -142,12 +87,8 @@ class RightFoot implements IHangmanStep {
   }
 }
 
-class LeftFoot implements IHangmanStep {
-  stepNumber(): number {
-    return 10;
-  }
-
-  draw(context: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+export class LeftFoot extends Hangman {
+  draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(172, 210);
     context.lineTo(184, 205);

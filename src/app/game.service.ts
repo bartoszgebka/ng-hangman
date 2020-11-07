@@ -11,7 +11,7 @@ import { StateGame } from './models/state.game';
 export class GameService {
   wordToGuess: string;
   fails: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  maxFails = Hangman.getSteps().length;
+  maxFails = 10;
   stateGame: BehaviorSubject<StateGame> = new BehaviorSubject<StateGame>(
     StateGame.DURING
   );
