@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import * as words from 'random-words';
 import { BehaviorSubject } from 'rxjs';
 import { Character } from './models/character';
-import { Hangman } from './models/hangman/hangman';
 import { StateGame } from './models/state.game';
 
 @Injectable({

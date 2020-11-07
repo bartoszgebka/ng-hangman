@@ -1,5 +1,5 @@
 import {
-  Hangman,
+  IHangman,
   BasisGallows,
   Gallows,
   Head,
@@ -13,11 +13,11 @@ import {
 } from './hangman';
 
 interface HangmanFactory {
-  makeHangmanStep(step: number): Hangman;
+  makeHangmanStep(step: number): IHangman;
 }
 
 export class HangmanFactoryImpl implements HangmanFactory {
-  public makeHangmanStep(step: number): Hangman {
+  public makeHangmanStep(step: number): IHangman {
     switch (step) {
       case 1:
         return new BasisGallows();

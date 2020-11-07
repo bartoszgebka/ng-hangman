@@ -1,7 +1,7 @@
-export abstract class Hangman {
-  abstract draw(context: CanvasRenderingContext2D): void;
+export interface IHangman {
+  draw(context: CanvasRenderingContext2D): void;
 }
-export class BasisGallows extends Hangman {
+export class BasisGallows implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.strokeStyle = '#444';
     context.lineWidth = 10;
@@ -12,7 +12,7 @@ export class BasisGallows extends Hangman {
   }
 }
 
-export class Gallows extends Hangman {
+export class Gallows implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(40, 340);
@@ -23,7 +23,7 @@ export class Gallows extends Hangman {
   }
 }
 
-export class Head extends Hangman {
+export class Head implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.lineWidth = 5;
     context.beginPath();
@@ -33,7 +33,7 @@ export class Head extends Hangman {
   }
 }
 
-export class Body extends Hangman {
+export class Body implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 90);
@@ -42,7 +42,7 @@ export class Body extends Hangman {
   }
 }
 
-export class RightArm extends Hangman {
+export class RightArm implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 100);
@@ -51,7 +51,7 @@ export class RightArm extends Hangman {
   }
 }
 
-export class LeftArm extends Hangman {
+export class LeftArm implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 100);
@@ -60,7 +60,7 @@ export class LeftArm extends Hangman {
   }
 }
 
-export class RightLeg extends Hangman {
+export class RightLeg implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 160);
@@ -69,7 +69,7 @@ export class RightLeg extends Hangman {
   }
 }
 
-export class LeftLeg extends Hangman {
+export class LeftLeg implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(150, 160);
@@ -78,7 +78,7 @@ export class LeftLeg extends Hangman {
   }
 }
 
-export class RightFoot extends Hangman {
+export class RightFoot implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(132, 210);
@@ -87,7 +87,7 @@ export class RightFoot extends Hangman {
   }
 }
 
-export class LeftFoot extends Hangman {
+export class LeftFoot implements IHangman {
   draw(context: CanvasRenderingContext2D): void {
     context.beginPath();
     context.moveTo(172, 210);
