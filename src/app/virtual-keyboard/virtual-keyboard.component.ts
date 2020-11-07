@@ -8,12 +8,12 @@ import { GameService } from '../game.service';
     `
       .btn-keyboard {
         padding: 0.25rem 0.5rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
-      @media (min-width: 450px) and (max-width: 565px) {
+      @media (min-width: 455px) and (max-width: 565px) {
         .btn-keyboard {
           padding: 0.3rem 0.7rem;
-          font-size: 1rem;
+          font-size: 1.25rem;
         }
       }
       @media (min-width: 566px) {
