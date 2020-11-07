@@ -4,6 +4,26 @@ import { GameService } from '../game.service';
 @Component({
   selector: 'app-virtual-keyboard',
   templateUrl: './virtual-keyboard.component.html',
+  styles: [
+    `
+      .btn-keyboard {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+      }
+      @media (min-width: 450px) and (max-width: 565px) {
+        .btn-keyboard {
+          padding: 0.3rem 0.7rem;
+          font-size: 1rem;
+        }
+      }
+      @media (min-width: 566px) {
+        .btn-keyboard {
+          padding: 0.5rem 1rem;
+          font-size: 1.25rem;
+        }
+      }
+    `,
+  ],
 })
 export class VirtualKeyboardComponent implements OnInit {
   characters: string[] = [

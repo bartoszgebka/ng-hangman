@@ -9,7 +9,18 @@ import { ViewChild } from '@angular/core';
 @Component({
   selector: 'app-hangman',
   templateUrl: './hangman.component.html',
-  styleUrls: ['./hangman.component.scss'],
+  styles: [
+    `
+      .lives-btn {
+        margin: 1rem 0;
+      }
+      @media (min-width: 768px) {
+        .lives-btn {
+          margin: 0;
+        }
+      }
+    `,
+  ],
 })
 export class HangmanComponent implements OnInit {
   StateGame: any = StateGame;

@@ -4,7 +4,7 @@
       <app-hangman-canvas></app-hangman-canvas>
     </div>
     <div class="col-12 col-md-3">
-      <button type="button" class="btn btn-success" [appLives]>
+      <button type="button" class="btn btn-success lives-btn" [appLives]>
         Lives
         <span class="badge badge-light">{{
           gameService.maxFails - gameService.fails.getValue()
